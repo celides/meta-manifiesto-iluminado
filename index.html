@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Meta-Manifiesto-Iluminado — Juan Carlos Pérez Martínez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #050505;
+  --black-soft: #0a0a0a;
+  --gold: #c5a059;
+  --gold-light: #e2c27d;
+  --gold-dark: #9a7a3a;
+  --white: #f0ece4;
+  --platinum: #b8b8b8;
+  --border: rgba(197,160,89,0.2);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  line-height: 1.85;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.bg-marble {
+  position: fixed; inset: 0;
+  background: url('https://www.transparenttextures.com/patterns/black-marble.png');
+  opacity: 0.5;
+  z-index: -2;
+  pointer-events: none;
+}
+.bg-vignette {
+  position: fixed; inset: 0;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.7) 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* HEADER */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(5,5,5,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+}
+.header-inner {
+  max-width: 1400px; margin: 0 auto;
+  display: flex; align-items: center; gap: 18px;
+}
+.logo-wrap {
+  width: 42px; height: 42px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold);
+  font-size: 1.4rem;
+  font-family: 'Playfair Display', serif;
+  box-shadow: 0 0 20px rgba(197,160,89,0.2);
+  flex-shrink: 0;
+}
+.header-titles { flex: 1; min-width: 0; }
+.header-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.8rem;
+  letter-spacing: 5px;
+  color: var(--gold);
+  font-weight: 700;
+}
+.header-sub {
+  font-size: 0.7rem;
+  color: var(--platinum);
+  opacity: 0.6;
+  letter-spacing: 2px;
+  margin-top: 2px;
+}
+.menu-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--gold);
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+}
+.menu-toggle:hover { border-color: var(--gold); background: rgba(197,160,89,0.1); }
+
+/* NAV LATERAL */
+.side-nav {
+  position: fixed; top: 0; left: -340px;
+  width: 340px; height: 100vh;
+  background: rgba(5,5,5,0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid var(--border);
+  padding: 100px 30px 40px;
+  overflow-y: auto;
+  transition: left 0.4s ease;
+  z-index: 99;
+}
+.side-nav.open { left: 0; }
+.nav-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 6px;
+}
+.nav-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.side-nav ul { list-style: none; }
+.side-nav li { margin-bottom: 4px; }
+.side-nav a {
+  color: var(--platinum);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+  padding: 8px 0;
+  transition: all 0.3s;
+}
+.side-nav a:hover { color: var(--gold); padding-left: 8px; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  position: relative;
+}
+.hero-content { max-width: 800px; position: relative; }
+.hero-infinito {
+  font-size: 6rem;
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  line-height: 1;
+  margin-bottom: 24px;
+  text-shadow: 0 0 60px rgba(197,160,89,0.5);
+}
+.hero-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 6px;
+  color: var(--gold);
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 4px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.hero-title .gold { color: var(--gold); }
+.hero-line {
+  width: 100px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 30px auto;
+}
+.hero-subtitle {
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--gold-light);
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+.hero-author {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.hero-place {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: var(--platinum);
+  opacity: 0.5;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: -120px; left: 50%; transform: translateX(-50%);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  color: var(--platinum);
+  opacity: 0.5;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+.scroll-arrow { font-size: 1.2rem; margin-top: 6px; color: var(--gold); }
+@keyframes pulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
+
+/* PORTADAS DE LIBRO */
+.book-cover {
+  min-height: 80vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 120px 24px;
+  text-align: center;
+}
+.book-cover-inner { max-width: 700px; }
+.book-roman {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 8px;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.book-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: 6px;
+  color: var(--white);
+  margin-bottom: 30px;
+}
+.book-line {
+  width: 120px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 30px;
+}
+.book-desc {
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--platinum);
+  line-height: 1.8;
+}
+
+/* CAPÍTULOS */
+.chapter {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+.chapter-number {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 6px;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.chapter-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 50px;
+  line-height: 1.3;
+}
+.verse {
+  font-size: 1.15rem;
+  color: var(--white);
+  margin-bottom: 26px;
+  line-height: 1.85;
+}
+.v-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 2px;
+  margin-right: 12px;
+  opacity: 0.7;
+  vertical-align: super;
+}
+.verse strong { color: var(--gold-light); font-weight: 600; }
+.verse em { color: var(--gold); font-style: italic; }
+
+.quote {
+  border-left: 2px solid var(--gold);
+  padding: 20px 0 20px 24px;
+  margin: 30px 0;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--gold-light);
+  line-height: 1.7;
+}
+.quote-source {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--platinum);
+  opacity: 0.7;
+  font-style: normal;
+}
+.quote-translation {
+  display: block;
+  margin-top: 12px;
+  font-size: 1rem;
+  color: var(--platinum);
+  font-style: normal;
+}
+
+/* IMÁGENES UMBRAL */
+.img-threshold {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 24px;
+  position: relative;
+}
+.img-threshold img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  filter: brightness(0.7) contrast(1.1);
+}
+.img-caption {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: var(--platinum);
+  opacity: 0.6;
+  text-align: center;
+  margin-top: 16px;
+}
+
+/* CTA CORPUS */
+.cta-corpus { text-align: center; margin-top: 60px; }
+.btn-corpus {
+  display: inline-block;
+  padding: 18px 40px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-decoration: none;
+  transition: all 0.4s;
+  background: rgba(197,160,89,0.03);
+}
+.btn-corpus:hover {
+  background: var(--gold);
+  color: var(--black);
+  box-shadow: 0 0 40px rgba(197,160,89,0.4);
+}
+
+/* CITA DEL CORPUS */
+.citae {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 32px 28px;
+  margin-bottom: 30px;
+  position: relative;
+}
+.citae::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.cita-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  color: var(--gold);
+  letter-spacing: 3px;
+  margin-bottom: 6px;
+}
+.cita-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.cita-original {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  border-left: 2px solid var(--gold);
+  padding: 12px 0 12px 20px;
+  margin: 16px 0;
+}
+.cita-traduccion {
+  font-size: 1rem;
+  color: var(--white);
+  margin: 12px 0 16px;
+  padding-left: 22px;
+}
+.cita-autor {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--platinum);
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+.cita-contexto, .cita-anecdota, .cita-conexion {
+  font-size: 0.98rem;
+  color: var(--platinum);
+  margin-bottom: 14px;
+  line-height: 1.75;
+}
+.cita-anecdota strong, .cita-conexion strong { color: var(--gold); }
+
+/* FOOTER */
+.site-footer {
+  padding: 80px 24px 60px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  margin-top: 80px;
+}
+.footer-inner { max-width: 600px; margin: 0 auto; }
+.footer-infinito {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.footer-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  letter-spacing: 5px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.footer-sub {
+  font-style: italic;
+  color: var(--platinum);
+  margin-bottom: 24px;
+}
+.footer-author {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.footer-copy {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: var(--platinum);
+  opacity: 0.4;
+}
+
+/* ICONO FLOTANTE PREGÚNTAME */
+.ask-float {
+  position: fixed;
+  bottom: 30px; right: 30px;
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  cursor: pointer;
+  display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 0 30px rgba(197,160,89,0.5);
+  transition: all 0.3s;
+  z-index: 50;
+}
+.ask-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 50px rgba(197,160,89,0.7);
+}
+.ask-icon { font-size: 1rem; }
+
+/* MODAL PREGÚNTAME */
+.ask-modal {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 200;
+  display: none;
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+.ask-modal.open { display: flex; }
+.ask-modal-inner {
+  background: var(--black-soft);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  max-width: 560px;
+  width: 100%;
+  padding: 40px 32px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.ask-close {
+  position: absolute; top: 16px; right: 20px;
+  background: transparent; border: none;
+  color: var(--platinum);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.ask-close:hover { color: var(--gold); }
+.ask-header { text-align: center; margin-bottom: 30px; }
+.ask-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.ask-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.ask-sub {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--platinum);
+  opacity: 0.7;
+}
+.ask-label {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.ask-textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px;
+  color: var(--white);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  min-height: 100px;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.ask-textarea:focus { border-color: var(--gold); }
+.ask-buttons {
+  display: flex; gap: 10px; margin-top: 16px;
+  flex-wrap: wrap;
+}
+.btn-mic, .btn-send {
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid;
+}
+.btn-mic {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--platinum);
+}
+.btn-mic:hover { border-color: var(--gold); color: var(--gold); }
+.btn-mic.recording { background: var(--gold); color: var(--black); border-color: var(--gold); }
+.btn-send {
+  flex: 1;
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--black);
+}
+.btn-send:hover { box-shadow: 0 0 30px rgba(197,160,89,0.5); }
+.ask-answer {
+  margin-top: 24px;
+  padding: 20px;
+  background: rgba(197,160,89,0.04);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--white);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  display: none;
+}
+.ask-answer.visible { display: block; }
+.ask-answer.loading { color: var(--platinum); font-style: italic; }
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .site-header { padding: 12px 16px; }
+  .header-title { font-size: 0.65rem; letter-spacing: 3px; }
+  .header-sub { font-size: 0.6rem; }
+  .hero-infinito { font-size: 4rem; }
+  .hero-title { font-size: 2rem; }
+  .chapter { padding: 60px 20px; }
+  .verse { font-size: 1.05rem; }
+  .ask-float {
+    bottom: 20px; right: 20px;
+    padding: 12px 18px;
+    font-size: 0.7rem;
+  }
+  .ask-modal-inner { padding: 30px 22px; }
+  .side-nav { width: 280px; left: -280px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-marble"></div>
+<div class="bg-vignette"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-wrap">∞</div>
+    <div class="header-titles">
+      <div class="header-title">META-MANIFIESTO-ILUMINADO</div>
+      <div class="header-sub">Manifiesto de la Metapareidolia Pictórica</div>
+    </div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </div>
+</header>
+
+<nav class="side-nav" id="sideNav">
+  <div class="nav-label">LIBRO PRIMERO</div>
+  <div class="nav-title">EL TESTIMONIO</div>
+  <ul>
+    <li><a href="#prologo" onclick="closeMenu()">Prólogo</a></li>
+    <li><a href="#cap1" onclick="closeMenu()">I. Leonardo, el Alma Mater</a></li>
+    <li><a href="#cap2" onclick="closeMenu()">II. El Shock del Camión</a></li>
+    <li><a href="#cap3" onclick="closeMenu()">III. Diana León y el Oso Teddy</a></li>
+    <li><a href="#cierre" onclick="closeMenu()">Cierre del Testimonio</a></li>
+  </ul>
+  <div class="nav-label" style="margin-top:30px;">LIBRO SEGUNDO</div>
+  <div class="nav-title">EL CORPUS</div>
+  <ul>
+    <li><a href="#corpus" onclick="closeMenu()">Ir al Corpus →</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-content">
+    <div class="hero-infinito" data-parallax="0.3">∞</div>
+    <div class="hero-eyebrow" data-parallax="0.5">UN NUEVO GÉNERO LITERARIO</div>
+    <h1 class="hero-title" data-parallax="0.4">
+      META-MANIFIESTO<br/>
+      <span class="gold">ILUMINADO</span>
+    </h1>
+    <div class="hero-line" data-parallax="0.6"></div>
+    <p class="hero-subtitle" data-parallax="0.5">Manifiesto de la Metapareidolia Pictórica</p>
+    <p class="hero-author" data-parallax="0.6">Juan Carlos Pérez Martínez</p>
+    <p class="hero-place" data-parallax="0.7">Querétaro, México — 2026</p>
+    <div class="hero-scroll" data-parallax="0.8">
+      <span>Desliza para comenzar</span>
+      <div class="scroll-arrow">↓</div>
+    </div>
+  </div>
+</section>
+
+<section class="book-cover" id="libro1">
+  <div class="book-cover-inner" data-parallax="0.2">
+    <div class="book-roman">LIBRO PRIMERO</div>
+    <h2 class="book-name">EL TESTIMONIO</h2>
+    <div class="book-line"></div>
+    <p class="book-desc">La voz del artista. El relato del descubrimiento. La historia en primera persona.</p>
+  </div>
+</section>
+
+<article class="chapter" id="prologo">
+  <div class="chapter-number">PRÓLOGO</div>
+  <div class="verses">
+    <p class="verse"><span class="v-num">0.1</span> No escribo para convencer.<br/>Escribo para revelar.</p>
+    <p class="verse"><span class="v-num">0.2</span> Este no es un manifiesto más.<br/>Es un manifiesto que se contiene a sí mismo.<br/>Que trae su propia prueba.<br/>Que ilumina lo que declara.</p>
+    <p class="verse"><span class="v-num">0.3</span> Durante siglos, los manifiestos han sido declaraciones puras.<br/>Ninguno trajo sus pruebas consigo.<br/>Todos exigieron fe.</p>
+    <p class="verse"><span class="v-num">0.4</span> Este no exige fe.<br/>Este trae la ciencia.<br/>Trae las citas.<br/>Trae los nombres.<br/>Trae la historia.</p>
+    <p class="verse"><span class="v-num">0.5</span> Por eso tiene un nombre distinto.<br/>No es manifiesto.<br/>Es <em>meta</em>-manifiesto.<br/>Y <em>está iluminado</em>.</p>
+    <p class="verse"><span class="v-num">0.6</span> No es un manifiesto.<br/>Es un <strong>Meta-Manifiesto-Iluminado</strong>.<br/>Y el Manifiesto de la Metapareidolia Pictórica es el primero de su especie.</p>
+    <p class="verse"><span class="v-num">0.7</span> Que así sea.<br/>Y que quien lo lea, lo lea con el alma abierta.</p>
+  </div>
+</article>
+
+<div class="img-threshold" data-parallax="0.3">
+  <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=1600" alt="Códice antiguo"/>
+  <div class="img-caption">Códice · El alma mater de la Metapareidolia</div>
+</div>
+
+<article class="chapter" id="cap1">
+  <div class="chapter-number">CAPÍTULO I</div>
+  <h2 class="chapter-title">Leonardo, el Alma Mater</h2>
+  <div class="verses">
+    <p class="verse"><span class="v-num">1.1</span> Antes de que existiera la Metapareidolia Pictórica,<br/>antes de que yo naciera,<br/>antes de que el cine existiera,<br/>antes de que la fotografía siquiera se soñara,<br/>ya existía un hombre.<br/>Su nombre era <strong>Leonardo da Vinci</strong>.</p>
+    <p class="verse"><span class="v-num">1.2</span> Y Leonardo no pintaba para pintar.<br/>Pintaba para <strong>descubrir</strong>.</p>
+    <p class="verse"><span class="v-num">1.3</span> Cada cuadro suyo era un laboratorio.<br/>Cada trazo era una pregunta.<br/>Cada color era un experimento.<br/>Cada rostro era un mapa del alma.</p>
+    <p class="verse"><span class="v-num">1.4</span> Porque esto es algo que muy pocos saben<br/>y que la historia oficial casi nunca cuenta:<br/><strong>Leonardo no era pintor. Era científico.</strong></p>
+    <p class="verse"><span class="v-num">1.5</span> La pintura era solo su instrumento.<br/>Su laboratorio.<br/>Su microscopio.<br/>Su telescopio.</p>
+    <p class="verse"><span class="v-num">1.6</span> En sus cuadernos no hay solo bocetos de figuras.<br/>Hay estudios de óptica.<br/>Hay planos de máquinas voladoras.<br/>Hay disecciones anatómicas.<br/>Hay geometría sagrada.<br/>Hay hidráulica.<br/>Hay botánica.<br/>Hay anatomía del ojo humano.</p>
+    <p class="verse"><span class="v-num">1.7</span> Él no pintaba porque quería ser famoso.<br/>Pintaba porque <strong>quería entender cómo funciona la realidad</strong>.</p>
+    <p class="verse"><span class="v-num">1.8</span> Fue el primero en entender que el arte y la ciencia no son enemigos.<br/>Que se necesitan.<br/>Que se abrazan.<br/>Que la experiencia —como él dijo— es <em>"madre común de las artes y las ciencias"</em>.</p>
+    <p class="verse"><span class="v-num">1.9</span> Leonardo no tuvo maestros como los tenemos hoy.<br/>Tuvo la naturaleza.<br/>Tuvo la curiosidad.<br/>Tuvo la experiencia.<br/>Tuvo la observación paciente.<br/>Tuvo el fracaso.</p>
+    <p class="verse"><span class="v-num">1.10</span> Y tuvo algo más.<br/>Algo que muy pocos artistas tienen.<br/><strong>Tuvo el coraje de mirar sin miedo.</strong></p>
+    <p class="verse"><span class="v-num">1.13</span> Y usaba <strong>espejos</strong> para verse pintar.<br/>No como adorno.<br/>Como herramienta de investigación visual.</p>
+    <p class="verse"><span class="v-num">1.14</span> Y nosotros, quinientos años después, seguimos usando el espejo.<br/>Pero de otra forma.<br/>El lienzo que pintamos no es un cuadro para contemplar.<br/><strong>Es un espejo para que el espectador se vea a sí mismo.</strong></p>
+    <p class="verse"><span class="v-num">1.19</span> Leonardo fue el primero en escribir sobre la <strong>pareidolia</strong>.<br/>No la llamó así —el término no existía—<br/>pero la describió con precisión de cirujano:</p>
+    <blockquote class="quote">
+      "Si miras una pared manchada, verás figuras, batallas, paisajes, rostros."
+      <span class="quote-source">— Leonardo da Vinci, Trattato della Pittura, c. 1492</span>
+    </blockquote>
+    <p class="verse"><span class="v-num">1.20</span> Dijo más aún. Y esto es clave:</p>
+    <blockquote class="quote">
+      "Vedrai cose che ti faranno onore, perché nelle cose confuse l'ingegno si desta a nuove invenzioni."
+      <span class="quote-translation">"Verás cosas que te harán honor, porque en las cosas confusas el ingenio se despierta a nuevas invenciones."</span>
+    </blockquote>
+    <p class="verse"><span class="v-num">1.21</span> Lo dijo hace quinientos años.<br/>Y nadie lo escuchó.<br/>Hasta hoy.</p>
+    <p class="verse"><span class="v-num">1.26</span> Él es el principio.<br/>Yo soy la evolución.<br/>Pero ambos somos uno solo.<br/>Como el infinito.</p>
+  </div>
+</article>
+
+<div class="img-threshold" data-parallax="0.3">
+  <img src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=1600" alt="Carretera al atardecer"/>
+  <div class="img-caption">La carretera Querétaro–Aguascalientes · Donde todo comenzó</div>
+</div>
+
+<article class="chapter" id="cap2">
+  <div class="chapter-number">CAPÍTULO II</div>
+  <h2 class="chapter-title">El Shock del Camión</h2>
+  <div class="verses">
+    <p class="verse"><span class="v-num">2.1</span> Esto no nació en un laboratorio.<br/>Nació en un camión.<br/>Un camión que viajaba de Querétaro a Aguascalientes.<br/>Y de Aguascalientes a Querétaro.<br/>Ida y vuelta.</p>
+    <p class="verse"><span class="v-num">2.2</span> Yo trabajaba para poder mantenerme.<br/>Y para no aburrirme en el camino, llevaba en el teléfono fotografías de todas mis pinturas.</p>
+    <p class="verse"><span class="v-num">2.4</span> Yo le mostraba las pinturas al compañero de al lado.<br/>Al que me tocara en el asiento.</p>
+    <p class="verse"><span class="v-num">2.5</span> Al principio las veían con calma.<br/>Con detenimiento.<br/>Se tardaban <strong>10 segundos</strong>.<br/>Luego <strong>8</strong>.<br/>Luego <strong>6</strong>.<br/>Luego <strong>5</strong>.<br/>Luego <strong>2</strong>.<br/>Luego <strong>1 segundo</strong>.</p>
+    <p class="verse"><span class="v-num">2.7</span> Y yo me quedé helado.<br/>Porque había obras que me habían costado <strong>meses</strong>.<br/>Obras que me habían quitado el sueño.<br/>Obras en las que había puesto mi alma.<br/><strong>Y las veían en un segundo.</strong></p>
+    <p class="verse"><span class="v-num">2.9</span> Y entonces me pregunté algo que cambió todo:<br/><strong>¿Cómo hago una pintura que dure más de un segundo?</strong><br/><strong>¿Cómo hago una pintura que tenga miles de imágenes dentro?</strong></p>
+    <p class="verse"><span class="v-num">2.12</span> Antes de los teléfonos, la gente miraba las pinturas durante minutos.<br/>Horas incluso.<br/>En el Renacimiento, una pintura era <strong>como la televisión</strong> para nosotros.</p>
+    <p class="verse"><span class="v-num">2.15</span> Nuestro cerebro evolucionó.<br/>Es más rápido.<br/>Es más inteligente.<br/>Es más exigente.<br/><strong>Y por eso se aburre más rápido.</strong></p>
+    <p class="verse"><span class="v-num">2.18</span> En ese camión,<br/>viajando entre dos ciudades,<br/>mirando cómo la gente pasaba mis obras en un segundo,<br/><strong>nací yo como investigador.</strong><br/>Y nació la semilla de lo que hoy es la <strong>Metapareidolia Pictórica</strong>.</p>
+  </div>
+</article>
+
+<div class="img-threshold" data-parallax="0.3">
+  <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1600" alt="Oso Teddy en nubes"/>
+  <div class="img-caption">El perro que se volvió oso · El día en que descubrí que el que mira también crea</div>
+</div>
+
+<article class="chapter" id="cap3">
+  <div class="chapter-number">CAPÍTULO III</div>
+  <h2 class="chapter-title">Diana León y el Oso Teddy</h2>
+  <div class="verses">
+    <p class="verse"><span class="v-num">3.1</span> Yo pintaba mucho.<br/>Todos los días.<br/>En la universidad.<br/>En mi casa.</p>
+    <p class="verse"><span class="v-num">3.2</span> Y cuando terminaba una pintura,<br/>siempre hacía lo mismo:<br/><strong>la mostraba.</strong><br/>A quien estuviera pasando.</p>
+    <p class="verse"><span class="v-num">3.5</span> Y dentro de las nubes,<br/>dentro de las formas que parecían solo nubes,<br/>yo había escondido algo.<br/>Algo pequeño.<br/>Algo secreto.<br/><strong>Un perro.</strong><br/>Un perro callejero.<br/>De esos peludos.</p>
+    <p class="verse"><span class="v-num">3.6</span> Pero no le dije a nadie que había un perro.<br/>Solo dije:<br/><strong>"Mira esta pintura. Busca algo."</strong></p>
+    <p class="verse"><span class="v-num">3.7</span> Y la primera persona que pasó fue <strong>Diana León</strong>.<br/>Mi compañera de la universidad.<br/>Iba conmigo en el salón.</p>
+    <p class="verse"><span class="v-num">3.8</span> Diana se paró frente a la pintura.<br/>Y la miró.<br/>Y la miró.<br/>Y la miró.</p>
+    <p class="verse"><span class="v-num">3.9</span> Y los minutos pasaron.<br/><strong>Quince minutos.</strong><br/>Quince minutos enteros mirando la misma pintura.</p>
+    <p class="verse"><span class="v-num">3.11</span> Y al final, dijo:<br/><strong>"Ya lo vi."</strong></p>
+    <p class="verse"><span class="v-num">3.13</span> Y ella respondió:<br/><strong>"Un osito."</strong><br/><strong>"Un oso Teddy."</strong></p>
+    <p class="verse"><span class="v-num">3.14</span> Yo me quedé helado.<br/>Un oso Teddy.<br/><strong>Yo nunca pinté un oso Teddy.</strong></p>
+    <p class="verse"><span class="v-num">3.16</span> Hasta que ella me dijo dónde estaba.<br/>Y <strong>estaba dentro del perro</strong>.<br/>El oso Teddy vivía dentro del perro.</p>
+    <p class="verse"><span class="v-num">3.18</span> <strong>El que pinta no es el único que crea.</strong><br/><strong>El que mira, también crea.</strong></p>
+    <p class="verse"><span class="v-num">3.22</span> Y así, entre ella y yo,<br/>pasamos <strong>media hora</strong> mirando una pintura.<br/>Media hora.<br/>Dos personas.<br/>Una pintura.<br/><strong>Una experiencia.</strong></p>
+    <p class="verse"><span class="v-num">3.28</span> Metapareidolia: <strong>ver más allá de la forma.</strong><br/><strong>Ver lo que el inconsciente proyecta.</strong><br/><strong>Ver lo que el ojo no alcanza pero el alma sí.</strong></p>
+  </div>
+</article>
+
+<div class="img-threshold" data-parallax="0.3">
+  <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=1600" alt="Galería de arte"/>
+  <div class="img-caption">La galería · Donde el espectador se convierte en protagonista</div>
+</div>
+
+<article class="chapter" id="cierre">
+  <div class="chapter-number">CIERRE DEL TESTIMONIO</div>
+  <div class="verses">
+    <p class="verse">Este es el fin del Testimonio.<br/>Pero no es el fin del Manifiesto.</p>
+    <p class="verse">Porque el Testimonio necesita al <strong>Corpus</strong>.<br/>Necesita la evidencia.<br/>Necesita la ciencia.<br/>Necesita las citas.</p>
+    <p class="verse">Porque la revelación sin prueba es solo promesa.<br/>Y la prueba sin revelación es solo dato.</p>
+    <p class="verse">Juntos, forman el <strong>Meta-Manifiesto-Iluminado</strong>.</p>
+  </div>
+  <div class="cta-corpus">
+    <a href="#corpus" class="btn-corpus">↓ CONTINUAR AL CORPUS ↓</a>
+  </div>
+</article>
+
+<section class="book-cover" id="corpus">
+  <div class="book-cover-inner" data-parallax="0.2">
+    <div class="book-roman">LIBRO SEGUNDO</div>
+    <h2 class="book-name">EL CORPUS</h2>
+    <div class="book-line"></div>
+    <p class="book-desc">El cuerpo de la evidencia. Las citas que sostienen el Testimonio. La revelación en tercera persona.</p>
+  </div>
+</section>
+
+<article class="chapter">
+  <div class="chapter-number">SECCIÓN I · LAS RAÍCES DE LEONARDO DA VINCI</div>
+  <div class="citae">
+    <div class="cita-num">[1]</div>
+    <div class="cita-titulo">Sobre la pintura como poesía</div>
+    <blockquote class="cita-original">"La pittura è una poesia che si vede e non si sente, e la poesia è una pittura che si sente e non si vede."</blockquote>
+    <div class="cita-traduccion">"La pintura es una poesía que se ve y no se oye, y la poesía es una pintura que se oye y no se ve."</div>
+    <div class="cita-autor">Leonardo da Vinci — <em>Trattato della Pittura</em>, Códice Urbinas Latinus 1270, c. 1492</div>
+    <div class="cita-contexto">Leonardo escribió esto en sus cuadernos personales entre 1490 y 1510. No era una frase pensada para publicarse: era una nota de trabajo. La pintura, para él, era la más alta de las artes porque ofrecía todo el mundo visible de un solo golpe: color, forma, proporción, movimiento, alma.</div>
+    <div class="cita-anecdota"><strong>Anécdota:</strong> Leonardo no sabía latín. Y por eso no pudo estudiar en las universidades de su tiempo. Cuando lo rechazaron, respondió: <em>"La experiencia es la madre común de todas las artes y las ciencias."</em></div>
+    <div class="cita-conexion"><strong>Conexión con la Metapareidolia:</strong> Leonardo fue el primero en tratar el arte pictórico como investigación sistemática. Cada cuadro suyo era un laboratorio. Cada mancha, una hipótesis.</div>
+  </div>
+
+  <div class="citae">
+    <div class="cita-num">[5]</div>
+    <div class="cita-titulo">Sobre la pared manchada</div>
+    <blockquote class="cita-original">"Se tu guarderai alcuni muri macchiati di varie macchie... potrai vedere in esso similitudine di diversi paesi... battaglie... figure..."</blockquote>
+    <div class="cita-traduccion">"Si miras algunos muros manchados de varias manchas... podrás ver en él similitud de diversos paisajes... batallas... figuras..."</div>
+    <div class="cita-autor">Leonardo da Vinci — <em>Trattato della Pittura</em>, c. 1492</div>
+    <div class="cita-contexto">Este es el pasaje más importante para la historia de la pareidolia. Leonardo no solo describió el fenómeno; lo sistematizó como método creativo y de descubrimiento. La ciencia moderna no formalizó este fenómeno hasta 1920.</div>
+    <div class="cita-anecdota"><strong>Anécdota:</strong> Aparece en el Códice Urbinas Latinus 1270, hoy en la Biblioteca Vaticana. Leonardo recomendaba a sus discípulos que contemplaran las manchas de humedad en las paredes para "despertar el ingenio".</div>
+    <div class="cita-conexion"><strong>Conexión con la Metapareidolia:</strong> Esta es la base de todo. La Metapareidolia Pictórica no es más que la aplicación sistemática, artística y terapéutica de lo que Leonardo observó por primera vez.</div>
+  </div>
+
+  <div class="citae">
+    <div class="cita-num">[6]</div>
+    <div class="cita-titulo">Sobre las cosas confusas</div>
+    <blockquote class="cita-original">"Vedrai cose che ti faranno onore, perché nelle cose confuse l'ingegno si desta a nuove invenzioni."</blockquote>
+    <div class="cita-traduccion">"Verás cosas que te harán honor, porque en las cosas confusas el ingenio se despierta a nuevas invenciones."</div>
+    <div class="cita-autor">Leonardo da Vinci — <em>Trattato della Pittura</em>, c. 1492</div>
+    <div class="cita-contexto">Este pasaje es la conclusión del texto sobre la pared manchada. Leonardo estaba diciendo: la confusión no es tu enemiga; es tu maestra.</div>
+    <div class="cita-anecdota"><strong>Anécdota:</strong> Leonardo usa la palabra italiana "ingegno", que significa "ingenio" pero también "genio creativo". No hablaba de inteligencia racional. Hablaba de esa chispa divina que permite ver lo que otros no ven.</div>
+    <div class="cita-conexion"><strong>Conexión con la Metapareidolia:</strong> Esta frase es el corazón de todo el Meta-Manifiesto. La ambigüedad del lienzo metapareidólico no es un defecto; es un dispositivo.</div>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-infinito">∞</div>
+    <p class="footer-title">META-MANIFIESTO-ILUMINADO</p>
+    <p class="footer-sub">Manifiesto de la Metapareidolia Pictórica</p>
+    <p class="footer-author">Juan Carlos Pérez Martínez</p>
+    <p class="footer-copy">© 2026 · Querétaro, México</p>
+  </div>
+</footer>
+
+<button class="ask-float" onclick="openAsk()">
+  <span class="ask-icon">✦</span>
+  <span class="ask-text">Pregúntame</span>
+</button>
+
+<div class="ask-modal" id="askModal">
+  <div class="ask-modal-inner">
+    <button class="ask-close" onclick="closeAsk()">✕</button>
+    <div class="ask-header">
+      <div class="ask-logo">∞</div>
+      <div class="ask-title">PREGUNTA AL MANIFIESTO</div>
+      <div class="ask-sub">Respuestas basadas exclusivamente en el Meta-Manifiesto-Iluminado</div>
+    </div>
+    <div class="ask-body">
+      <label class="ask-label">Tu pregunta:</label>
+      <textarea id="askInput" class="ask-textarea" placeholder="Escribe o dicta tu pregunta..."></textarea>
+      <div class="ask-buttons">
+        <button class="btn-mic" id="micBtn" onclick="toggleMic()">🎤 Dictar</button>
+        <button class="btn-send" onclick="sendQuestion()">Enviar →</button>
+      </div>
+      <div class="ask-answer" id="askAnswer"></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+/* ============ SCROLL SUAVE Y PARALLAX ============ */
+const lenis = new Lenis({
+  duration: 1.4,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  smooth: true,
+});
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+gsap.registerPlugin(ScrollTrigger);
+
+document.querySelectorAll('[data-parallax]').forEach(el => {
+  const speed = parseFloat(el.dataset.parallax) || 0.5;
+  gsap.to(el, {
+    y: () => -window.innerHeight * speed * 0.4,
+    ease: "none",
+    scrollTrigger: {
+      trigger: el,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 1,
+    }
+  });
+});
+
+document.querySelectorAll('.img-threshold img').forEach(img => {
+  gsap.fromTo(img,
+    { y: -40, scale: 1.1 },
+    {
+      y: 40, scale: 1.1,
+      ease: "none",
+      scrollTrigger: {
+        trigger: img.parentElement,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1.5,
+      }
+    }
+  );
+});
+
+document.querySelectorAll('.chapter, .book-cover').forEach(el => {
+  gsap.from(el, {
+    opacity: 0,
+    y: 40,
+    duration: 1.2,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: el,
+      start: "top 85%",
+      toggleActions: "play none none none",
+    }
+  });
+});
+
+/* ============ MENÚ LATERAL ============ */
+function toggleMenu() {
+  document.getElementById('sideNav').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('sideNav').classList.remove('open');
+}
+
+/* ============ PREGÚNTAME ============ */
+function openAsk() {
+  document.getElementById('askModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeAsk() {
+  document.getElementById('askModal').classList.remove('open');
+  document.body.style.overflow = '';
+  stopMic();
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeAsk();
+});
+
+/* ============ MICRÓFONO (Web Speech API) ============ */
+let recognition = null;
+let isRecording = false;
+
+function initRecognition() {
+  if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+    return null;
+  }
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const rec = new SR();
+  rec.lang = 'es-MX';
+  rec.continuous = false;
+  rec.interimResults = false;
+  rec.maxAlternatives = 1;
+  rec.onresult = (event) => {
+    const texto = event.results[0][0].transcript;
+    const input = document.getElementById('askInput');
+    input.value = (input.value + ' ' + texto).trim();
+  };
+  rec.onerror = (event) => {
+    console.warn('Error de reconocimiento:', event.error);
+    stopMic();
+  };
+  rec.onend = () => {
+    stopMic();
+  };
+  return rec;
+}
+
+function toggleMic() {
+  if (isRecording) {
+    stopMic();
+    return;
+  }
+  if (!recognition) recognition = initRecognition();
+  if (!recognition) {
+    alert('Tu navegador no soporta dictado por voz. Usa Chrome o Edge.');
+    return;
+  }
+  try {
+    recognition.start();
+    isRecording = true;
+    document.getElementById('micBtn').classList.add('recording');
+    document.getElementById('micBtn').textContent = '🔴 Grabando...';
+  } catch(e) {
+    console.warn('Error al iniciar micrófono:', e);
+  }
+}
+
+function stopMic() {
+  if (recognition && isRecording) {
+    try { recognition.stop(); } catch(e) {}
+  }
+  isRecording = false;
+  const btn = document.getElementById('micBtn');
+  if (btn) {
+    btn.classList.remove('recording');
+    btn.textContent = '🎤 Dictar';
+  }
+}
+
+/* ============ AUDIO (SpeechSynthesis) ============ */
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'es-MX';
+  utterance.rate = 0.95;
+  utterance.pitch = 1.0;
+  utterance.volume = 1.0;
+  const voices = window.speechSynthesis.getVoices();
+  const spanishVoice = voices.find(v => v.lang.startsWith('es'));
+  if (spanishVoice) utterance.voice = spanishVoice;
+  window.speechSynthesis.speak(utterance);
+}
+
+/* ============ ENVIAR PREGUNTA ============ */
+async function sendQuestion() {
+  const input = document.getElementById('askInput');
+  const answer = document.getElementById('askAnswer');
+  const pregunta = input.value.trim();
+  
+  if (!pregunta) {
+    answer.textContent = 'Por favor, escribe o dicta tu pregunta.';
+    answer.classList.add('visible', 'loading');
+    return;
+  }
+  
+  answer.classList.add('visible', 'loading');
+  answer.textContent = 'Buscando en el Meta-Manifiesto-Iluminado...';
+  
+  await new Promise(r => setTimeout(r, 1200));
+  
+  const respuesta = buscarRespuestaPregrabada(pregunta);
+  answer.classList.remove('loading');
+  answer.textContent = respuesta;
+  
+  speak(respuesta);
+}
+
+/* ============ RESPUESTAS PREGRABADAS (FASE 1) ============ */
+function buscarRespuestaPregrabada(pregunta) {
+  const p = pregunta.toLowerCase();
+  
+  const respuestas = [
+    {
+      claves: ['pareidolia', 'qué es pareidolia'],
+      texto: 'La pareidolia es el fenómeno por el cual el cerebro humano ve figuras reconocibles donde no las hay. Leonardo da Vinci lo describió en 1492, en su Trattato della Pittura, cuando dijo: "Si miras algunos muros manchados de varias manchas, podrás ver en él similitud de diversos paisajes, batallas, figuras." La ciencia moderna no formalizó este fenómeno hasta 1920. La Metapareidolia Pictórica es la aplicación sistemática de ese principio, pero con pinturas diseñadas para provocar la proyección del inconsciente.'
+    },
+    {
+      claves: ['leonardo', 'da vinci', 'alma mater'],
+      texto: 'Leonardo da Vinci no era pintor. Era científico. Su pintura era su laboratorio. En sus cuadernos —que él llamaba libriccino— hay estudios de óptica, planos de máquinas voladoras, disecciones anatómicas, geometría sagrada, botánica y anatomía del ojo humano. Usaba espejos para verse pintar. Construyó el perspectógrafo. Y fue el primero en escribir sobre la pareidolia, quinientos años antes de que la ciencia moderna le diera nombre. Por eso es el Alma Mater de la Metapareidolia Pictórica.'
+    },
+    {
+      claves: ['diana león', 'diana', 'oso teddy', 'oso'],
+      texto: 'Diana León era compañera de Juan Carlos en la universidad. Un día, él terminó una pintura de un caballo con alas, con nubes, y dentro de las nubes había escondido un perro callejero. Le dijo: "Mira esta pintura. Busca algo." Diana se paró frente a la obra y la miró durante quince minutos. Al final dijo: "Ya lo vi. Es un osito. Un oso Teddy." Juan Carlos nunca había pintado un oso Teddy. Estaba dentro del perro. Ese día entendió algo: el que pinta no es el único que crea. El que mira, también crea.'
+    },
+    {
+      claves: ['shock', 'camión', 'camion', 'carretera'],
+      texto: 'La Metapareidolia Pictórica nació en un camión, viajando entre Querétaro y Aguascalientes. Juan Carlos mostraba fotos de sus pinturas al compañero de al lado. Al principio las veían con calma: 10 segundos, 8, 6, 5. Pero luego las empezaron a ver en 2 segundos, en 1 segundo. Y esas pinturas le habían costado meses. Ese shock lo llevó a preguntarse: ¿cómo hago una pintura que dure más de un segundo? ¿Cómo hago una pintura que tenga miles de imágenes dentro? Esa pregunta fue la semilla de todo.'
+    },
+    {
+      claves: ['topos uranos', 'platón', 'platon', 'topos'],
+      texto: 'El Topos Uranos es el "lugar supraceleste" que Platón describe en el Fedro. Es el lugar donde habitan las Ideas perfectas —los moldes originales de todo lo que vemos aquí. Las almas, dice Platón, contemplaron esas Ideas antes de nacer. Y al nacer, olvidaron. Pero no del todo. Aprender, para Platón, es recordar. La Metapareidolia Pictórica es una forma de acceder al Topos Uranos a través de la imagen: cuando ves formas en una pintura, no las inventas; las recuerdas.'
+    },
+    {
+      claves: ['científicos', 'cientificos', 'sueñan', 'sueño', 'edison', 'tesla', 'ramanujan'],
+      texto: 'Los grandes científicos no descubrieron sus teorías por casualidad. Tenían métodos. Edison tenía el "pensamiento caleidoscópico": llenaba cuadernos con dibujos y anotaciones. Tesla construía sus inventos en su mente antes de construirlos físicamente. Ramanujan veía fórmulas en sueños. Mendeléyev soñó la tabla periódica. Kekulé soñó una serpiente mordiéndose la cola y descubrió el anillo de benceno. Bohr soñó el sistema solar dentro del átomo. Todos vieron imágenes antes de entenderlas. La Metapareidolia Pictórica es el mismo proceso, pero no necesitas dormir.'
+    },
+    {
+      claves: ['google', 'arts', 'culture', 'museo'],
+      texto: 'Google Arts & Culture documentó con la Art Camera las obras más importantes del mundo. Y los estudios de los museos más grandes revelan algo inquietante: en el Tate Modern, los visitantes pasan 8 segundos frente a cada obra. En el Met de Nueva York, 27 segundos. En el Prado, 4 minutos y 8 segundos frente a "El Jardín de las Delicias". Y la Mona Lisa: 33 a 50 segundos. Pero en las obras metapareidólicas, el espectador se queda entre 15 y 30 minutos. Cuando llega a reflexión profunda: hasta 45 minutos. Y con grupos: hasta 2 horas.'
+    },
+    {
+      claves: ['constitución', 'constitucion', 'padres fundadores', 'josé smith', 'jose smith'],
+      texto: 'El 16 de diciembre de 1833, el profeta José Smith recibió una revelación que está registrada en Doctrina y Convenios, sección 101, versículo 80: "He establecido la Constitución de este país, por mano de hombres sabios que yo levanté para este propósito mismo, y redimí la tierra por el derramamiento de sangre." Años después, en 1877, Wilford Woodruff vio en el Templo de St. George a los Padres Fundadores. George Washington fue ordenado Sumo Sacerdote en ese momento. La Constitución no fue solo un acto político. Fue un acto divino.'
+    },
+    {
+      claves: ['metapareidolia', 'qué es metapareidolia'],
+      texto: 'La Metapareidolia Pictórica es abstraccionismo proyectivo. Es una evolución donde el lienzo deja de ser un objeto contemplativo para convertirse en un dispositivo de interacción neuro-visual. El pintor ya no pinta: prepara el espejo. El que mira, crea lo que ve. No es un cuadro. Es una puerta. Y del otro lado, el inconsciente espera.'
+    },
+    {
+      claves: ['infinito', 'símbolo', 'simbolo'],
+      texto: 'El infinito es el símbolo central del Meta-Manifiesto-Iluminado. Porque el final no es un final: es una curva que regresa al principio. Todo lo que Dios hace funciona así. El árbol crece, da frutos, muere. Y de su muerte nacen más árboles. El humano nace, se reproduce, muere. Y de su muerte nacen más humanos. Nada termina. Todo vuelve.'
+    },
+  ];
+  
+  for (const r of respuestas) {
+    for (const clave of r.claves) {
+      if (p.includes(clave)) return r.texto;
+    }
+  }
+  
+  return 'En la FASE 1 del Manifiesto, las respuestas están pregrabadas para un conjunto limitado de preguntas. En la FASE 2 (próximamente), este sistema se conectará al Corpus completo del Manifiesto mediante inteligencia artificial, y podrá responder a cualquier pregunta citando las fuentes exactas. Por ahora, te invito a explorar el Testimonio y el Corpus directamente. Terra vive. Terra sana. Terra es.';
+}
+
+if ('speechSynthesis' in window) {
+  window.speechSynthesis.onvoiceschanged = () => {
+    window.speechSynthesis.getVoices();
+  };
+}
+</script>
+</body>
+</html>
